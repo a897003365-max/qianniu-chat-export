@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "sanitization": "All original string values replaced by generated labels; message ID, time, CID and body replaced; only ASCII technical object keys retained. Object member order in ext is preserved.",
+  "cases": [
+    {
+      "name": "observed_pair_1",
+      "expected_changed_fields": [
+        "bizUnique"
+      ],
+      "before": {
+        "bizUnique": "value_0000",
+        "cid": {
+          "appCid": "conversation.1",
+          "domain": "cntaobao"
+        },
+        "content": "{\"text\":\"脱敏原文\"}",
+        "contentType": "value_0004",
+        "ext": "{\"senderBizDomain\":\"value_0016\",\"receiverBizDomain\":\"value_0016\",\"bizuniqueID\":\"value_0008\",\"pushMsgType\":\"value_0014\",\"imPushBizType\":\"value_0010\",\"tplInstanceID\":\"value_0022\",\"biMsgType\":\"value_0006\",\"isPrint\":\"value_0011\",\"pushSecondCate\":\"value_0015\",\"senderNickName\":\"value_0019\",\"receiver_nick\":\"value_0017\",\"sender_nick\":\"value_0020\",\"personalConfigDomain\":\"value_0012\",\"dynamic_msg_content\":\"value_0009\",\"tplID\":\"value_0021\",\"saas_msg_time\":\"value_0018\",\"personalConfigPushMsgType\":\"value_0013\",\"bizDataExt\":\"value_0007\"}",
+        "extMap": {
+          "biMsgType": "value_0006",
+          "bizDataExt": "value_0007",
+          "bizuniqueID": "value_0008",
+          "dynamic_msg_content": "value_0009",
+          "imPushBizType": "value_0010",
+          "isPrint": "value_0011",
+          "personalConfigDomain": "value_0012",
+          "personalConfigPushMsgType": "value_0013",
+          "pushMsgType": "value_0014",
+          "pushSecondCate": "value_0015",
+          "receiverBizDomain": "value_0016",
+          "receiver_nick": "value_0017",
+          "saas_msg_time": "value_0018",
+          "senderBizDomain": "value_0016",
+          "senderNickName": "value_0019",
+          "sender_nick": "value_0020",
+          "tplID": "value_0021",
+          "tplInstanceID": "value_0022"
+        },
+        "messageId": "fixture-overlap-1",
+        "msgStatus": "value_0024",
+        "namespace": "value_0025",
+        "options": {
+          "redPointMode": "value_0025"
+        },
+        "readStatus": "value_0025",
+        "receiverAccountList": [],
+        "receiverIds": [],
+        "sendTime": "1793376000200",
+        "senderId": {
+          "appUid": "value_0026",
+          "domain": "value_0002"
+        },
+        "senderName": "value_0019",
+        "templateId": "value_0004",
+        "unreadCount": "value_0025"
+      },
+      "after": {
+        "bizUnique": "value_0027",
+        "cid": {
+          "appCid": "conversation.1",
+          "domain": "cntaobao"
+        },
+        "content": "{\"text\":\"脱敏原文\"}",
+        "contentType": "value_0004",
+        "ext": "{\"senderBizDomain\":\"value_0016\",\"receiverBizDomain\":\"value_0016\",\"bizuniqueID\":\"value_0008\",\"pushMsgType\":\"value_0014\",\"imPushBizType\":\"value_0010\",\"tplInstanceID\":\"value_0022\",\"biMsgType\":\"value_0006\",\"isPrint\":\"value_0011\",\"pushSecondCate\":\"value_0015\",\"senderNickName\":\"value_0019\",\"receiver_nick\":\"value_0017\",\"sender_nick\":\"value_0020\",\"personalConfigDomain\":\"value_0012\",\"dynamic_msg_content\":\"value_0009\",\"tplID\":\"value_0021\",\"saas_msg_time\":\"value_0018\",\"personalConfigPushMsgType\":\"value_0013\",\"bizDataExt\":\"value_0007\"}",
+        "extMap": {
+          "biMsgType": "value_0006",
+          "bizDataExt": "value_0007",
+          "bizuniqueID": "value_0008",
+          "dynamic_msg_content": "value_0009",
+          "imPushBizType": "value_0010",
+          "isPrint": "value_0011",
+          "personalConfigDomain": "value_0012",
+          "personalConfigPushMsgType": "value_0013",
+          "pushMsgType": "value_0014",
+          "pushSecondCate": "value_0015",
+          "receiverBizDomain": "value_0016",
+          "receiver_nick": "value_0017",
+          "saas_msg_time": "value_0018",
+          "senderBizDomain": "value_0016",
+          "senderNickName": "value_0019",
+          "sender_nick": "value_0020",
+          "tplID": "value_0021",
+          "tplInstanceID": "value_0022"
+        },
+        "messageId": "fixture-overlap-1",
+        "msgStatus": "value_0024",
+        "namespace": "value_0025",
+        "options": {
+          "redPointMode": "value_0025"
+        },
+        "readStatus": "value_0025",
+        "receiverAccountList": [],
+        "receiverIds": [],
+        "sendTime": "1793376000200",
+        "senderId": {
+          "appUid": "value_0026",
+          "domain": "value_0002"
+        },
+        "senderName": "value_0019",
+        "templateId": "value_0004",
+        "unreadCount": "value_0025"
+      }
+    },
+    {
+      "name": "observed_pair_2",
+      "expected_changed_fields": [
+        "bizUnique"
+      ],
+      "before": {
+        "bizUnique": "value_0028",
+        "cid": {
+          "appCid": "conversation.1",
+          "domain": "cntaobao"
+        },
+        "content": "{\"text\":\"脱敏原文\"}",
+        "contentType": "value_0024",
+        "ext": "{\"senderBizDomain\":\"value_0016\",\"receiver_nick\":\"value_0034\",\"security_url\":\"value_0035\",\"sender_nick\":\"value_0036\",\"receiverBizDomain\":\"value_0016\",\"pushMsgType\":\"value_0014\",\"paasAppKey\":\"value_0033\",\"saasNamespace\":\"value_0016\",\"bizDataExt\":\"value_0032\"}",
+        "extMap": {
+          "bizDataExt": "value_0032",
+          "paasAppKey": "value_0033",
+          "pushMsgType": "value_0014",
+          "receiverBizDomain": "value_0016",
+          "receiver_nick": "value_0034",
+          "saasNamespace": "value_0016",
+          "security_url": "value_0035",
+          "senderBizDomain": "value_0016",
+          "sender_nick": "value_0036"
+        },
+        "messageId": "fixture-overlap-2",
+        "msgStatus": "value_0024",
+        "namespace": "value_0025",
+        "options": {
+          "redPointMode": "value_0025"
+        },
+        "readStatus": "value_0025",
+        "receiverAccountList": [],
+        "receiverIds": [],
+        "sendTime": "1793376000200",
+        "senderId": {
+          "appUid": "value_0039",
+          "domain": "value_0002"
+        },
+        "templateId": "value_0024",
+        "unreadCount": "value_0025"
+      },
+      "after": {
+        "bizUnique": "value_0040",
+        "cid": {
+          "appCid": "conversation.1",
+          "domain": "cntaobao"
+        },
+        "content": "{\"text\":\"脱敏原文\"}",
+        "contentType": "value_0024",
+        "ext": "{\"senderBizDomain\":\"value_0016\",\"receiver_nick\":\"value_0034\",\"security_url\":\"value_0035\",\"sender_nick\":\"value_0036\",\"receiverBizDomain\":\"value_0016\",\"pushMsgType\":\"value_0014\",\"paasAppKey\":\"value_0033\",\"saasNamespace\":\"value_0016\",\"bizDataExt\":\"value_0032\"}",
+        "extMap": {
+          "bizDataExt": "value_0032",
+          "paasAppKey": "value_0033",
+          "pushMsgType": "value_0014",
+          "receiverBizDomain": "value_0016",
+          "receiver_nick": "value_0034",
+          "saasNamespace": "value_0016",
+          "security_url": "value_0035",
+          "senderBizDomain": "value_0016",
+          "sender_nick": "value_0036"
+        },
+        "messageId": "fixture-overlap-2",
+        "msgStatus": "value_0024",
+        "namespace": "value_0025",
+        "options": {
+          "redPointMode": "value_0025"
+        },
+        "readStatus": "value_0025",
+        "receiverAccountList": [],
+        "receiverIds": [],
+        "sendTime": "1793376000200",
+        "senderId": {
+          "appUid": "value_0039",
+          "domain": "value_0002"
+        },
+        "templateId": "value_0024",
+        "unreadCount": "value_0025"
+      }
+    },
+    {
+      "name": "observed_pair_3",
+      "expected_changed_fields": [
+        "bizUnique",
+        "ext"
+      ],
+      "before": {
+        "bizUnique": "value_0041",
+        "cid": {
+          "appCid": "conversation.1",
+          "domain": "cntaobao"
+        },
+        "content": "{\"text\":\"脱敏原文\"}",
+        "contentType": "value_0004",
+        "ext": "{\"senderBizDomain\":\"value_0016\",\"receiverBizDomain\":\"value_0016\",\"bizuniqueID\":\"value_0046\",\"pushMsgType\":\"value_0014\",\"imPushBizType\":\"value_0047\",\"tplInstanceID\":\"value_0051\",\"biMsgType\":\"value_0044\",\"senderNickName\":\"value_0049\",\"pushSecondCate\":\"value_0048\",\"receiver_nick\":\"value_0036\",\"sender_nick\":\"value_0034\",\"tplID\":\"value_0050\",\"saas_msg_time\":\"value_0038\",\"bizDataExt\":\"value_0045\"}",
+        "extMap": {
+          "biMsgType": "value_0044",
+          "bizDataExt": "value_0045",
+          "bizuniqueID": "value_0046",
+          "imPushBizType": "value_0047",
+          "pushMsgType": "value_0014",
+          "pushSecondCate": "value_0048",
+          "receiverBizDomain": "value_0016",
+          "receiver_nick": "value_0036",
+          "saas_msg_time": "value_0038",
+          "senderBizDomain": "value_0016",
+          "senderNickName": "value_0049",
+          "sender_nick": "value_0034",
+          "tplID": "value_0050",
+          "tplInstanceID": "value_0051"
+        },
+        "messageId": "fixture-overlap-3",
+        "msgStatus": "value_0024",
+        "namespace": "value_0025",
+        "options": {
+          "redPointMode": "value_0025"
+        },
+        "readStatus": "value_0025",
+        "receiverAccountList": [],
+        "receiverIds": [],
+        "sendTime": "1793376000200",
+        "senderId": {
+          "appUid": "value_0053",
+          "domain": "value_0002"
+        },
+        "senderName": "value_0049",
+        "templateId": "value_0004",
+        "unreadCount": "value_0025"
+      },
+      "after": {
+        "bizUnique": "value_0054",
+        "cid": {
+          "appCid": "conversation.1",
+          "domain": "cntaobao"
+        },
+        "content": "{\"text\":\"脱敏原文\"}",
+        "contentType": "value_0004",
+        "ext": "{\"senderBizDomain\":\"value_0016\",\"receiverBizDomain\":\"value_0016\",\"bizuniqueID\":\"value_0046\",\"imPushBizType\":\"value_0047\",\"pushMsgType\":\"value_0014\",\"tplInstanceID\":\"value_0051\",\"biMsgType\":\"value_0044\",\"senderNickName\":\"value_0049\",\"pushSecondCate\":\"value_0048\",\"receiver_nick\":\"value_0036\",\"sender_nick\":\"value_0034\",\"tplID\":\"value_0050\",\"saas_msg_time\":\"value_0038\",\"bizDataExt\":\"value_0045\"}",
+        "extMap": {
+          "biMsgType": "value_0044",
+          "bizDataExt": "value_0045",
+          "bizuniqueID": "value_0046",
+          "imPushBizType": "value_0047",
+          "pushMsgType": "value_0014",
+          "pushSecondCate": "value_0048",
+          "receiverBizDomain": "value_0016",
+          "receiver_nick": "value_0036",
+          "saas_msg_time": "value_0038",
+          "senderBizDomain": "value_0016",
+          "senderNickName": "value_0049",
+          "sender_nick": "value_0034",
+          "tplID": "value_0050",
+          "tplInstanceID": "value_0051"
+        },
+        "messageId": "fixture-overlap-3",
+        "msgStatus": "value_0024",
+        "namespace": "value_0025",
+        "options": {
+          "redPointMode": "value_0025"
+        },
+        "readStatus": "value_0025",
+        "receiverAccountList": [],
+        "receiverIds": [],
+        "sendTime": "1793376000200",
+        "senderId": {
+          "appUid": "value_0053",
+          "domain": "value_0002"
+        },
+        "senderName": "value_0049",
+        "templateId": "value_0004",
+        "unreadCount": "value_0025"
+      }
+    }
+  ]
+}

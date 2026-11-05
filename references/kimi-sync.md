@@ -1,0 +1,15 @@
+# Codex 主版本、Kimi 副本与 owner
+
+主版本是 Codex 的 `$CODEX_HOME/skills/qianniu-chat-export`，未配置时为 `~/.codex/skills/qianniu-chat-export`。Kimi 目标默认是当前环境确认过的 `$KIMI_CODE_HOME/skills/qianniu-chat-export` 或 `~/.kimi-code/skills/qianniu-chat-export`；先核对当地发现路径，不凭同名假设内容相同。
+
+其他兼容 Agent 的共享发现入口可使用 `~/.agents/skills/qianniu-chat-export`，指向 Codex 主版本的目录联接；安装时先核对目标不存在或已正确链接，不覆盖另一个独立副本。联接无需复制同步，主版更新后核验目标与 Skill/脚本 SHA。Kimi 保留独立副本并逐文件同步。已有聊天可能缓存旧说明，升级后重新加载 Skill；文件同步与模型实际加载分别验收。
+
+用户要求同步或本次授权覆盖同步时：先检查副本独立改动，再复制完整 Skill 代码、参考和合成 fixture。逐文件比较相对路径、bytes、SHA-256；不复制 `__pycache__`、任务清单、聊天、图片、runtime、日志、凭据或退休登记。运行进程使用冻结版本，不边跑边覆盖。
+
+同步触发条件是本次批准的主版变化或新阶段交接。候选验收后由主控安装、同步并重新生成任务代码清单；接手方报告实际读取路径与文件哈希，复制成功不等于已加载。当前文档和脚本无平台专属差异；两端 Python/Node/CLI 安装位置各自显式提供。
+
+只有已明确分工的冻结批次，日期、查询上下文与 owner 才由 manifest 决定：Kimi 领取 `owner=kimi`，Codex 领取 `owner=codex`。普通独立采集不使用 owner，一个 Agent 通过 `scripts/standalone.py` 完成全部选定上下文，不依赖另一个 Agent。共享媒体下载/OCR以统一库去重，不能各复制一套媒体任务来“均分”。owner 数量均分不代表耗时相同。用户未要求 Kimi 时，不因清单中存在该名称擅自启动模型；先按任务授权安排执行者。
+
+跨 Agent 交接按当前项目协议维护 HANDOFF：清单与代码 SHA、授权范围、实际 PID/阶段回执、失败/待人工状态、允许的领取 owner。接收方核验后写 accepted 或有证据的 blocked。双方不在消息中粘贴客户原文或凭据。
+
+Kimi CLI 参数和模型别名随当前安装核实；只读模型标识，不输出 provider 凭据。模型启动与资源限额处理由用户授权的主控负责，不能把“计划分配”写成“实际模型已启动”。若用户规定额度后的恢复时间，只有实际额度失败才触发；等待期间保留现场，不重启已有采集器。

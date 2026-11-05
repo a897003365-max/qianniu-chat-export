@@ -1,0 +1,15 @@
+# Only portable skill sources, docs and the reviewed synthetic fixture are public.
+*
+!/.gitignore
+!/README.md
+!/SKILL.md
+!/requirements.txt
+!/requirements-ocr.txt
+!/references/
+!/references/*.md
+!/scripts/
+!/scripts/*.py
+!/scripts/unified/
+!/scripts/unified/*.py
+!/scripts/fixtures/
+!/scripts/fixtures/overlap-sanitized.json
