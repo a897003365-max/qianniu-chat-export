@@ -19,6 +19,8 @@ import sqlite3
 import tempfile
 import uuid
 
+from ocr_content import group_ocr_versions
+
 
 MEDIA_ERROR_CODES = frozenset("""
 relative_path_required path_outside_root invalid_sha256 invalid_artifact artifact_hash_or_size_mismatch
@@ -603,6 +605,19 @@ class MediaStore:
             return [{"image_sha256": image_sha, "sha256": row["ocr_sha"], "path": row["path"], "bytes": row["bytes"],
                      "profile_id": row["profile_id"], "provenance": row["provenance"],
                      "sources": [json.loads(source[0]) for source in connection.execute("SELECT source_json FROM media_ocr_sources WHERE image_sha=? AND ocr_sha=? ORDER BY source_key", (image_sha, row["ocr_sha"]))]} for row in rows]
+
+    def ocr_content_groups(self, image_sha):
+        """Read verified recognition groups without dropping archival versions."""
+        versions = self.ocr_versions(image_sha)
+        items = []
+        for version in versions:
+            value = json.loads(read_artifact(self.root, version))
+            if value.get("image_sha256") != image_sha:
+                raise MediaStoreError("ocr_image_mismatch")
+            items.append({"value": value, "version": version})
+        return [{"image_sha256": image_sha, "content_sha256": fingerprint,
+                 "versions": [item["version"] for item in group]}
+                for fingerprint, group in group_ocr_versions(items).items()]
 
     def import_verified_legacy(self, source_root, media_index_path, *, expected_index_sha256):
         source_root, media_index_path = Path(source_root).resolve(), Path(media_index_path).resolve()

@@ -67,6 +67,36 @@ class Tests(unittest.TestCase):
     def tearDown(self):
         self.temporary.cleanup()
 
+    def test_recognition_groups_preserve_files_sources_and_detect_changed_member(self):
+        self.store.add_refs('job',[ref('job',1,'https://example.invalid/groups.png')])
+        _,blob = self.download(png())
+        image_sha = blob['image_sha256']
+        value = {'image_sha256':image_sha,'engine':'fixture','version':'1',
+                 'frames':[{'text':'same','entries':[], 'elapsed_seconds':[1]}]}
+        entries=[]
+        for timing, text in ((1,'same'),(2,'same'),(3,'different')):
+            item=copy.deepcopy(value)
+            item['frames'][0].update(text=text,elapsed_seconds=[timing])
+            data=media.encoded(item)
+            entry=self.store._publish('shared/ocr/'+image_sha[:2]+'/'+image_sha+'/'+media.sha(data)+'.json',data)
+            entries.append(entry)
+            with self.store._transaction() as connection:
+                self.store._insert_ocr(connection,image_sha,entry,None,'imported_verified_asset_only',{'fixture_source':timing})
+                if timing==1:
+                    self.store._insert_ocr(connection,image_sha,entry,None,'imported_verified_asset_only',{'fixture_source':'copied'})
+        original=self.db.read_bytes()
+        groups=self.store.ocr_content_groups(image_sha)
+        self.assertEqual(sorted(len(x['versions']) for x in groups),[1,2])
+        self.assertEqual(sum(len(v['sources']) for group in groups for v in group['versions']),4)
+        self.assertEqual(len(self.store.ocr_versions(image_sha)),3)
+        self.assertEqual(self.db.read_bytes(),original)
+        self.assertIsNone(self.store.next_ocr(PROFILE,'must-reuse',999))
+        with contextlib.closing(self.store._connect()) as connection:
+            self.assertEqual(connection.execute('SELECT COUNT(*) FROM media_ocr_tasks').fetchone()[0],0)
+        (self.root/entries[1]['path']).write_bytes(b'corrupted nonrepresentative member')
+        with self.assertRaisesRegex(media.MediaStoreError,'artifact_hash_or_size_mismatch'):
+            self.store.ocr_content_groups(image_sha)
+
     def download(self, data, worker="download-fixture", pid=123):
         task = self.store.next_download(worker, pid)
         self.assertIsNotNone(task)

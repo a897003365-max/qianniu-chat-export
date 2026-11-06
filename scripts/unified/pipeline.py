@@ -27,7 +27,7 @@ from timed_bridge import TimedBrowser, BridgeError
 
 SOURCE_PATHS = {'pipeline.py': Path(__file__).resolve(),
     **{name+'.py': Path(sys.modules[name].__file__).resolve() for name in (
-        'message_export', 'media_store', 'task_queue', 'timed_bridge', 'legacy_import')}}
+        'message_export', 'media_store', 'ocr_content', 'task_queue', 'timed_bridge', 'legacy_import')}}
 SOURCE_SHA256 = {name: sha(path) for name,path in SOURCE_PATHS.items()}
 GLOBAL_BRIDGE_ERRORS = frozenset(('auth_required', 'verification_required', 'identity_failed', 'identity_mismatch',
     'invalid_runtime', 'invalid_identity', 'registry_invalid', 'process_mismatch'))
